@@ -67,8 +67,8 @@ app.post('/TESTAPI/resetFixture', function(req, res) {
 app.post('/TESTAPI/unitTests', function(req, res) {
 
     var resp = {};
-    resp = {'totalTests' : 1, 
-      'nrFailed': 1,
+    resp = {'totalTests' : 10, 
+      'nrFailed': 0,
       'output': 'testing'
     };
     res.json(resp);

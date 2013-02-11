@@ -57,7 +57,7 @@ app.post('/users/add', function(req, res) {
 
 app.post('/TESTAPI/resetFixture', function(req, res) {
 
-  usersModel.TESTAPI_resetFixture(function(error, retStatus) {
+  usersModel.TESTAPI_resetFixture(function() {
     var resp = {};
     resp = {'errCode' : SUCCESS};
     res.json(resp);

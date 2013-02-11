@@ -191,11 +191,11 @@ UsersModel.prototype.TESTAPI_resetFixture = function(callback) {
   var userData = connection.query(resetQuery,
   function(err, results) {
     if (err) { throw err; }
-    callback(results);
-  });
-  // Recreate the table.
-  connection.query(createTableQuery, function(err) {
-    if (err) { throw err; }
+    // Recreate the table.
+    connection.query(createTableQuery, function(err) {
+      if (err) { throw err; }
+      callback();
+    });
   });
 };
 
