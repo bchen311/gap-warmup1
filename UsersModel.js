@@ -140,7 +140,8 @@ UsersModel.prototype.login = function(user, password, callback) {
         retStatus = userDbCount;
       }
     }
-    callback(null, retStatus);
+    if (callback instanceof Function) { callback(null, retStatus); }
+//    callback(null, retStatus);
   });
 };
 
@@ -176,7 +177,8 @@ UsersModel.prototype.add = function(user, password, callback) {
         retStatus = 1;
       }
     }
-    callback(null, retStatus);
+    if (callback instanceof Function) { callback(null, retStatus); }
+//    callback(null, retStatus);
   });
 };
 

@@ -1,10 +1,24 @@
 var UsersModel = require('../UsersModel').UsersModel;
 var unittest = require('nodeunit');
+var assert = require('assert');
 
+TestUsers = function() {};
+var users = new UsersModel();
+
+TestUsers.prototype.setup = function() {
+  users.TESTAPI_resetFixture(function() {};);
+};
+
+TestUsers.prototype.testAdd1 = function() {
+//  self.assertEquals(server.SUCCESS, self.users.add("user1", "password"))
+  
+};
+
+/*
 exports.test = unittest.testCase( {
   setUp: function() {
-    var users = new UsersModel();
-    users.TESTAPI_resetFixture();
+    
+    users.TESTAPI_resetFixture(function() {};);
   },
   tearDown: function() {
   },
@@ -13,4 +27,4 @@ exports.test = unittest.testCase( {
     test.done();
   }
 });
-
+*/

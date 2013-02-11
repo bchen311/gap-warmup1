@@ -65,7 +65,8 @@ app.post('/TESTAPI/resetFixture', function(req, res) {
 });
 
 app.post('/TESTAPI/unitTests', function(req, res) {
-
+    var unittest = require('./test/unittest');
+    unittest.testAdd1();
     var resp = {};
     resp = {'totalTests' : 10, 
       'nrFailed': 0,

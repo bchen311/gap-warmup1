@@ -57,7 +57,7 @@ app.post('/users/add', function(req, res) {
 
 app.post('/TESTAPI/resetFixture', function(req, res) {
 
-  usersModel.TESTAPI_resetFixture(function(error, retStatus) {
+  usersModel.TESTAPI_resetFixture(function() {
     var resp = {};
     resp = {'errCode' : SUCCESS};
     res.json(resp);
@@ -65,7 +65,7 @@ app.post('/TESTAPI/resetFixture', function(req, res) {
 });
 
 app.post('/TESTAPI/unitTests', function(req, res) {
-
+    var unittest = require('./test/unittest');
     var resp = {};
     resp = {'totalTests' : 10, 
       'nrFailed': 0,

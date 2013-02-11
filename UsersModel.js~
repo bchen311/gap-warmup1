@@ -176,7 +176,8 @@ UsersModel.prototype.add = function(user, password, callback) {
         retStatus = 1;
       }
     }
-    callback(null, retStatus);
+    if (callback instanceof Function) { callback(null, retStatus); }
+//    callback(null, retStatus);
   });
 };
 
@@ -194,8 +195,8 @@ UsersModel.prototype.TESTAPI_resetFixture = function(callback) {
     // Recreate the table.
     connection.query(createTableQuery, function(err) {
       if (err) { throw err; }
+      callback();
     });
-    callback();
   });
 };
 
