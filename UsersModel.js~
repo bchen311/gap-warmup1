@@ -81,7 +81,7 @@ UsersModel.prototype.findUser = function(user, callback) {
   var userData = connection.query(findQuery, [user],
   function(err, results) {
     if (err) { throw err; }
-    callback(results);
+    callback(results.rows);
   });
 };
 
@@ -160,7 +160,7 @@ UsersModel.prototype.add = function(user, password, callback) {
   var userData = this.findUser(user, function(results) {
     var retStatus = 0;
     console.log("RESULTS==========================");
-    console.log(results.rows);
+    console.log(results);
 
     if (results.length > 0) {
       // User already in DB, return error

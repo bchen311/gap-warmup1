@@ -127,8 +127,6 @@ UsersModel.prototype.login = function(user, password, callback) {
       retStatus = ERR_BAD_CREDENTIALS;
     } else {
       // User is found in DB
-      console.log("RESULTS==========================");
-      console.log(results);
       userData = results[0];
       if (userData.password != password) {
         // Password does not match
@@ -159,8 +157,6 @@ UsersModel.prototype.add = function(user, password, callback) {
   // Check if user is in DB already
   var userData = this.findUser(user, function(results) {
     var retStatus = 0;
-    console.log("RESULTS==========================");
-    console.log(results);
 
     if (results.length > 0) {
       // User already in DB, return error
