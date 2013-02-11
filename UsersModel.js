@@ -159,6 +159,8 @@ UsersModel.prototype.add = function(user, password, callback) {
   // Check if user is in DB already
   var userData = this.findUser(user, function(results) {
     var retStatus = 0;
+    console.log("RESULTS==========================");
+    console.log(results);
     if (results.length > 0) {
       // User already in DB, return error
       retStatus = ERR_USER_EXISTS;
