@@ -64,6 +64,17 @@ app.post('/TESTAPI/resetFixture', function(req, res) {
   });
 });
 
+app.post('/TESTAPI/unitTests', function(req, res) {
+
+    var resp = {};
+    resp = {'totalTests' : 1, 
+      'nrFailed': 1
+      'output': 'testing'
+    };
+    res.json(resp);
+
+});
+
 app.get('/', function(req, res) {
   res.render('client.jade', {
     title: 'Login Page'

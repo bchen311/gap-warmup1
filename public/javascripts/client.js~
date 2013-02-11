@@ -56,8 +56,8 @@ $(document).ready(function() {
    $('#login-button').click(function() {
       username = $('#login-username').val()
       password = $('#login-password').val()
-      //json_request("/users/login", { user: username, password: password }, function(data) { return handle_login_response(data, username); }, function(err) { alert('error occurred on request'); });
-      json_request("/TESTAPI/resetFixture", {}, function(data) { console.log('RESET');}, function(err) {alert('error');});
+      json_request("/users/login", { user: username, password: password }, function(data) { return handle_login_response(data, username); }, function(err) { alert('error occurred on request'); });
+      
       return false;
    });
 
