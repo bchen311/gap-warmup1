@@ -18,13 +18,12 @@ var connection = new pg.Client(process.env.HEROKU_POSTGRESQL_CYAN_URL);
 connection.connect();
 
 // Create the database
-/*
+
 connection.query('CREATE DATABASE IF NOT EXISTS userDB;', function(err) {
   if (err) { throw err; }
 });
 connection.query('USE userDB');
-*/
-console.log(connection);
+
 // Create user table
 var createTableQuery = "" +
   "CREATE TABLE IF NOT EXISTS userTable(" +
