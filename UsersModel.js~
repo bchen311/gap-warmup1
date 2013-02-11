@@ -195,11 +195,9 @@ UsersModel.prototype.add = function(user, password, callback) {
 };
 
 /*
-  Add User Method
-  This method is called by the app to add login data provided by the user to the database.
+  Reset Table Method
+  This method is called to clear the database of all the rows.
 
-  @param String user - The username in the login field
-  @param String password - The password in the login field
   @param fn callback - The callback function to be called at the end
 */
 UsersModel.prototype.TESTAPI_resetFixture = function(callback) {

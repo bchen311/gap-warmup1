@@ -12,18 +12,9 @@ var MAX_PASSWORD_LENGTH = 128;
   Database Setup
 *******************/
 
-// Set up MySQL
-var mysql = require('mysql');
-var MYSQL_HOST = 'localhost';
-var MYSQL_USERNAME = 'root';
-var MYSQL_PASSWORD = 'password';
-
-var connection = mysql.createConnection({
-  host: MYSQL_HOST,
-  user: MYSQL_USERNAME,
-  password: MYSQL_PASSWORD
-});
-
+// Set up Postgresql
+var pg = require('pg');
+var connection = new pg.Client(process.env.DATABASE_URL);
 connection.connect();
 
 // Create the database
