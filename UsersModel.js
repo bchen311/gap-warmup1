@@ -14,7 +14,6 @@ var MAX_PASSWORD_LENGTH = 128;
 
 // Set up Postgresql
 var pg = require('pg');
-console.log(process.env.DATABASE_URL);
 var connection = new pg.Client(process.env.HEROKU_POSTGRESQL_CYAN_URL);
 connection.connect();
 
@@ -25,6 +24,7 @@ connection.query('CREATE DATABASE IF NOT EXISTS userDB;', function(err) {
 });
 connection.query('USE userDB');
 */
+console.log(connection);
 // Create user table
 var createTableQuery = "" +
   "CREATE TABLE IF NOT EXISTS userTable(" +
