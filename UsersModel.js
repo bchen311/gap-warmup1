@@ -17,20 +17,12 @@ var pg = require('pg');
 var connection = new pg.Client(process.env.HEROKU_POSTGRESQL_CYAN_URL);
 connection.connect();
 
-// Create the database
-/*
-connection.query('CREATE DATABASE IF NOT EXISTS userDB;', function(err) {
-  if (err) { throw err; }
-});
-connection.query('USE userDB');
-*/
 // Create user table
 var createTableQuery = "" +
   "CREATE TABLE IF NOT EXISTS userTable (" +
-  " user varchar(128) not null primary key," +
+  " username varchar(128) not null primary key," +
   " password varchar(128)," +
   " count int unsigned" +
-  //" primary key (user)" +
 ");";
 
 connection.query(createTableQuery, function(err) {
@@ -53,7 +45,7 @@ UsersModel = function(){};
   @param int count - The login count to be added to the DB
 */
 UsersModel.prototype.addUser = function(user, password, count) {
-  var addQuery = "INSERT INTO userTable (user, password, count) " + 
+  var addQuery = "INSERT INTO userTable (username, password, count) " + 
     "VALUES (?,?,?);";
   connection.query(addQuery, [user, password, count],
   function(err) {
@@ -70,7 +62,7 @@ UsersModel.prototype.addUser = function(user, password, count) {
 UsersModel.prototype.updateUserCount = function(user, count) {
   var updateQuery = "UPDATE userTable " +
     "SET count = (?)" +
-    "WHERE user = (?);";
+    "WHERE username = (?);";
   connection.query(updateQuery, [count, user],
   function(err) {
     if (err) { throw err; }
@@ -85,7 +77,7 @@ UsersModel.prototype.updateUserCount = function(user, count) {
   @param fn callback - The callback function to be called with the results of the search
 */
 UsersModel.prototype.findUser = function(user, callback) {
-  var findQuery = "SELECT * FROM userTable WHERE user = (?);";
+  var findQuery = "SELECT * FROM userTable WHERE username = (?);";
   var userData = connection.query(findQuery, [user],
   function(err, results) {
     if (err) { throw err; }
