@@ -29,7 +29,7 @@ var createTableQuery = "" +
   "CREATE TABLE IF NOT EXISTS userTable (" +
   " user varchar(128) not null primary key," +
   " password varchar(128)," +
-  " count int unsigned," +
+  " count int unsigned" +
   //" primary key (user)" +
 ");";
 

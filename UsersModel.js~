@@ -26,11 +26,11 @@ connection.query('USE userDB');
 */
 // Create user table
 var createTableQuery = "" +
-  "CREATE TABLE IF NOT EXISTS userTable(" +
-  " user varchar(128) not null," +
+  "CREATE TABLE IF NOT EXISTS userTable (" +
+  " user varchar(128) not null primary key," +
   " password varchar(128)," +
   " count int unsigned," +
-  " primary key (user)" +
+  //" primary key (user)" +
 ");";
 
 connection.query(createTableQuery, function(err) {
