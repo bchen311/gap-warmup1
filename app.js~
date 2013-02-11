@@ -68,7 +68,7 @@ app.post('/TESTAPI/unitTests', function(req, res) {
 
     var resp = {};
     resp = {'totalTests' : 1, 
-      'nrFailed': 1
+      'nrFailed': 1,
       'output': 'testing'
     };
     res.json(resp);
