@@ -66,14 +66,13 @@ app.post('/TESTAPI/resetFixture', function(req, res) {
 
 app.post('/TESTAPI/unitTests', function(req, res) {
 
-  usersModel.TESTAPI_resetFixture(function(error, retStatus) {
     var resp = {};
     resp = {'totalTests' : 1, 
       'nrFailed': 1
       'output': 'testing'
     };
     res.json(resp);
-  });
+
 });
 
 app.get('/', function(req, res) {
