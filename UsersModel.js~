@@ -77,7 +77,7 @@ UsersModel.prototype.updateUserCount = function(user, count) {
   @param fn callback - The callback function to be called with the results of the search
 */
 UsersModel.prototype.findUser = function(user, callback) {
-  var findQuery = "SELECT * FROM userTable WHERE username = '($1)';";
+  var findQuery = "SELECT * FROM userTable WHERE username = $1;";
   var userData = connection.query(findQuery, [user],
   function(err, results) {
     if (err) { throw err; }

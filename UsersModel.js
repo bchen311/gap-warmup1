@@ -46,7 +46,7 @@ UsersModel = function(){};
 */
 UsersModel.prototype.addUser = function(user, password, count) {
   var addQuery = "INSERT INTO userTable (username, password, count) " + 
-    "VALUES (?,?,?);";
+    "VALUES ($1,$2,$3);";
   connection.query(addQuery, [user, password, count],
   function(err) {
     if (err) { throw err; }
@@ -61,8 +61,8 @@ UsersModel.prototype.addUser = function(user, password, count) {
 */
 UsersModel.prototype.updateUserCount = function(user, count) {
   var updateQuery = "UPDATE userTable " +
-    "SET count = (?)" +
-    "WHERE username = (?);";
+    "SET count = $1" +
+    "WHERE username = $2;";
   connection.query(updateQuery, [count, user],
   function(err) {
     if (err) { throw err; }
