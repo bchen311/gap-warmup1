@@ -127,7 +127,7 @@ UsersModel.prototype.login = function(user, password, callback) {
       retStatus = ERR_BAD_CREDENTIALS;
     } else {
       // User is found in DB
-      console.log("RESULTS==========================";
+      console.log("RESULTS==========================");
       console.log(results);
       userData = results[0];
       if (userData.password != password) {
