@@ -16,16 +16,14 @@ var MAX_PASSWORD_LENGTH = 128;
 var pg = require('pg');
 var connection = new pg.Client(process.env.HEROKU_POSTGRESQL_CYAN_URL);
 connection.connect();
-console.log(process.env.HEROKU_POSTGRESQL_CYAN_URL);
-console.log('==============================');
-console.log(connection);
-// Create the database
 
+// Create the database
+/*
 connection.query('CREATE DATABASE IF NOT EXISTS userDB;', function(err) {
   if (err) { throw err; }
 });
 connection.query('USE userDB');
-
+*/
 // Create user table
 var createTableQuery = "" +
   "CREATE TABLE IF NOT EXISTS userTable(" +
