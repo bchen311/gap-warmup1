@@ -160,9 +160,7 @@ UsersModel.prototype.add = function(user, password, callback) {
   var userData = this.findUser(user, function(results) {
     var retStatus = 0;
     console.log("RESULTS==========================");
-    results.on('rows', function(results2) {
-      console.log(results2);
-    });
+    console.log(results.rows);
 
     if (results.length > 0) {
       // User already in DB, return error
