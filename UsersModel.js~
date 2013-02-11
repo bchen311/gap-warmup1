@@ -32,10 +32,13 @@ var createTableQuery = "" +
   " count int unsigned," +
   " primary key (user)" +
 ");";
+queryResult = connection.query(createTableQuery);
+//queryResult.on('end', function() { connection.end(); });
+/*
 connection.query(createTableQuery, function(err) {
   if (err) { throw err; }
 });
-
+*/
 
 /******************
   UsersModel Class
