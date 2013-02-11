@@ -26,7 +26,9 @@ app.configure('production', function(){
 var usersModel = new UsersModel();
 
 app.post('/users/login', function(req, res) {
-  
+  var username = req.body.user;
+  var password = req.body.password;
+
   usersModel.login(username, password, function(error, retStatus) {
     var resp = {};
     if (retStatus < 0) {
