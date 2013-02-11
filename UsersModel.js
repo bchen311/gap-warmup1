@@ -22,7 +22,7 @@ var createTableQuery = "" +
   "CREATE TABLE IF NOT EXISTS userTable (" +
   " username varchar(128) not null primary key," +
   " password varchar(128)," +
-  " count int unsigned" +
+  " count integer" +
 ");";
 
 connection.query(createTableQuery, function(err) {
