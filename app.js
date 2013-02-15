@@ -1,5 +1,6 @@
 var express = require('express');
 var UsersModel = require('./UsersModel').UsersModel;
+var UnitTest = require('./test/unittest').UnitTest;
 
 var SUCCESS = 1;
 
@@ -57,22 +58,23 @@ app.post('/users/add', function(req, res) {
 
 app.post('/TESTAPI/resetFixture', function(req, res) {
 
-  usersModel.TESTAPI_resetFixture(function() {
+  usersModel.TESTAPI_resetFixture(function(err, retStatus) {
     var resp = {};
-    resp = {'errCode' : SUCCESS};
+    resp = {'errCode' : retStatus};
     res.json(resp);
   });
 });
 
 app.post('/TESTAPI/unitTests', function(req, res) {
-    var unittest = require('./test/unittest').TestUsers;
-    unittest.testAdd1();
+  var unittest = new UnitTest();
+  unittest.testAll(function(numTests, numFailed, retError) {
     var resp = {};
-    resp = {'totalTests' : 10, 
-      'nrFailed': 0,
-      'output': 'testing'
+    resp = {'totalTests' : numTests, 
+      'nrFailed': numFailed,
+      'output': retError
     };
     res.json(resp);
+  });    
 
 });
 

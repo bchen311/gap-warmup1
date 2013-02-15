@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+  
+  <testsuite name="unittest"
+             errors="0"
+             failures="0"
+             tests="10">
+    
+      
+      <testcase name="testAdd1">
+        
+      </testcase>
+    
+      
+      <testcase name="testAdd2">
+        
+      </testcase>
+    
+      
+      <testcase name="testAddExists">
+        
+      </testcase>
+    
+      
+      <testcase name="testAddEmptyUsername">
+        
+      </testcase>
+    
+      
+      <testcase name="testLoginWorks">
+        
+      </testcase>
+    
+      
+      <testcase name="testBadCredentials">
+        
+      </testcase>
+    
+      
+      <testcase name="testLoginEmptyName">
+        
+      </testcase>
+    
+      
+      <testcase name="testResetFixture">
+        
+      </testcase>
+    
+      
+      <testcase name="testLongName">
+        
+      </testcase>
+    
+      
+      <testcase name="testLongPassword">
+        
+      </testcase>
+    
+  </testsuite>
+

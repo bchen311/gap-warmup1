@@ -3,7 +3,7 @@ var SUCCESS               =   1;  // : a success
 var ERR_BAD_CREDENTIALS   =  -1;  // : (for login only) cannot find the user/password pair in the database
 var ERR_USER_EXISTS       =  -2;  // : (for add only) trying to add a user that already exists
 var ERR_BAD_USERNAME      =  -3;  // : (for add, or login) invalid user name (only empty string is invalid for now)
-var ERR_BAD_PASSWORD      =  -4;
+var ERR_BAD_PASSWORD      =  -4;  // : (for add, or login) invalid password (over 128 characters)
 
 var MAX_USERNAME_LENGTH = 128;
 var MAX_PASSWORD_LENGTH = 128;
@@ -14,7 +14,9 @@ var MAX_PASSWORD_LENGTH = 128;
 
 // Set up Postgresql
 var pg = require('pg');
-var connection = new pg.Client(process.env.HEROKU_POSTGRESQL_CYAN_URL);
+var connectionString = process.env.HEROKU_POSTGRESQL_CYAN_URL || "tcp://postgres:password@localhost/postgres";
+
+var connection = new pg.Client(connectionString);
 connection.connect();
 
 // Create user table
@@ -78,6 +80,7 @@ UsersModel.prototype.updateUserCount = function(user, count) {
 */
 UsersModel.prototype.findUser = function(user, callback) {
   var findQuery = "SELECT * FROM userTable WHERE username = $1;";
+
   var userData = connection.query(findQuery, [user],
   function(err, results) {
     if (err) { throw err; }
@@ -141,7 +144,6 @@ UsersModel.prototype.login = function(user, password, callback) {
       }
     }
     if (callback instanceof Function) { callback(null, retStatus); }
-//    callback(null, retStatus);
   });
 };
 
@@ -158,7 +160,6 @@ UsersModel.prototype.add = function(user, password, callback) {
   // Check if user is in DB already
   var userData = this.findUser(user, function(results) {
     var retStatus = 0;
-
     if (results.length > 0) {
       // User already in DB, return error
       retStatus = ERR_USER_EXISTS;
@@ -178,7 +179,6 @@ UsersModel.prototype.add = function(user, password, callback) {
       }
     }
     if (callback instanceof Function) { callback(null, retStatus); }
-//    callback(null, retStatus);
   });
 };
 
@@ -189,16 +189,12 @@ UsersModel.prototype.add = function(user, password, callback) {
   @param fn callback - The callback function to be called at the end
 */
 UsersModel.prototype.TESTAPI_resetFixture = function(callback) {
-  var resetQuery = "DROP TABLE IF EXISTS userTable;";
+  var resetQuery = "DELETE FROM userTable;";
   var userData = connection.query(resetQuery,
   function(err, results) {
     if (err) { throw err; }
-    // Recreate the table.
-    connection.query(createTableQuery, function(err) {
-      if (err) { throw err; }
-      callback();
-    });
   });
+  callback(null, SUCCESS);
 };
 
 exports.UsersModel = UsersModel;
