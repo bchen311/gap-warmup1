@@ -4,7 +4,7 @@ html
     title Brandon's Page
     meta(name='viewport', content='width=device-width, initial-scale=1')
     link(rel='stylesheet', href='http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css')
-    link(rel='stylesheet', href='stylesheets/client.css')
+    link(rel='stylesheet', href='stylesheets/index.css')
     script(src='http://code.jquery.com/jquery-1.8.2.min.js')
     script(src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js')
     script(src='http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js')
@@ -25,8 +25,8 @@ html
                 label(for='pwd') Password: 
                 input#loginPassword(type='text', name='pwd', value='', placeholder='Password', data-mini='true')
               div(data-role='controlgroup', data-type='horizontal')
-                input#loginButton(type='submit', value='Login', data-role='button', data-icon='home', data-theme='a')
-                input#addUserButton(type='submit', value='Add User', data-role='button', data-icon='plus', data-theme='a')
+                input#loginButton(type='submit', value='Login', data-role='button', data-icon='home', data-theme='b')
+                input#addUserButton(type='submit', value='Add User', data-role='button', data-icon='plus', data-theme='b')
       center
         #welcomePage.box
           #welcomeMessage.message

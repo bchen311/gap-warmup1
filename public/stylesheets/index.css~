@@ -22,12 +22,10 @@
     background: url('../images/bg_img.jpg');
 }
 
-/* Add a background image */
 .ui-content {
     background: url('../images/bg_img.jpg');
 }
 
-/* Change the font style */
 .ui-body-c {
     color: #222;
     text-shadow: none;

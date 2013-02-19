@@ -11,7 +11,7 @@ app.configure(function(){
   app.set('view engine', 'jade');
   app.use(express.bodyParser());
   app.use(express.methodOverride());
-  app.use(require('stylus').middleware({ src: __dirname + '/public/stylesheets/' }));
+  app.use(require('stylus').middleware({ src: __dirname + '/public/stylesheets' }));
   app.use(app.router);
   app.use(express.static(__dirname + '/public'));
 });
@@ -79,7 +79,6 @@ app.post('/TESTAPI/unitTests', function(req, res) {
 });
 
 app.get('/', function(req, res) {
-//  res.render('client.jade', {
   res.render('index.jade', {
     title: 'Login Page'
   });
