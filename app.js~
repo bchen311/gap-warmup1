@@ -79,6 +79,7 @@ app.post('/TESTAPI/unitTests', function(req, res) {
 });
 
 app.get('/', function(req, res) {
+//  res.render('client.jade', {
   res.render('index.jade', {
     title: 'Login Page'
   });

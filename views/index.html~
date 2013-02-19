@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Brandon's Page</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+	<link rel="stylesheet" href="stylesheets/client.css" />
+	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+	<script src="javascripts/client.js"></script>
+</head>
+<body> 
+
+<div data-role="page">
+
+	<div data-role="header">
+		<h1>Brandon's Warmup App</h1>
+	</div>
+
+	<div data-role="content">
+	<center>
+		<div id="loginPage" class="box">
+			<div id="messageBox" class="message"></div>
+			<form>
+				<div data-role="fieldcontain">
+					<label for="username">Username: </label>
+					<input type="text" name="username" id="loginUsername" value="" placeholder="Username" data-mini="true" />
+				</div>
+				<div data-role="fieldcontain">
+					<label for="pwd">Password: </label>
+					<input type="text" name="pwd" id="loginPassword" value="" placeholder="Password" data-mini="true" />
+				</div>
+				<div data-role="controlgroup" data-type="horizontal">
+					<input id="loginButton" type="submit" value="Login" data-role="button" data-icon="home" data-theme="a">
+					<input id="addUserButton" type="submit" value="Add User" data-role="button" data-icon="plus" data-theme="a">
+				</div>
+			</form>
+		</div>
+	</center>
+	</div>
+	<center>
+	<div id="welcomePage" class="box">
+		<div id="welcomeMessage" class="message"></div>
+		<form>
+			<input type="submit" id="logoutButton" value="Logout" data-role="button" data-icon="back"  data-inline="true" data-theme="a">
+		</form>
+	</div>
+	</center>
+
+</div>
+
+</body>
+</html>

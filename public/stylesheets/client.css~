@@ -1,0 +1,19 @@
+/* This file contains the style parameters for the warmup app. */
+
+/* Add the box view only for bigger screen devices */
+@media only screen and (min-width: 600px){
+  .box {
+      height: 220px;
+      width: 500px;
+      border: thin black solid;
+      background-color: #EEE;
+  }
+}
+
+/* Styling the message boxes */
+.message {
+    margin: 10px 20px 10px 20px;
+    padding: 10px;
+    border: thin black dashed;
+}
+
